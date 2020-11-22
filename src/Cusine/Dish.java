@@ -17,6 +17,7 @@ public class Dish implements Comparable<Dish>{
 	protected int duration;
 	protected int type;
 	protected String name;
+	// price
 	protected int allowance;
 	
 

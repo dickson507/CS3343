@@ -1,8 +1,8 @@
-package MainSystem;
+package src.MainSystem;
 import java.util.*;
 import java.io.*;
-import Menu.*;
-import Persons.*;
+import src.Cusine.*;
+import src.Persons.*;
 
 public class CustomerOrder {
 	private Customer c;
@@ -12,6 +12,7 @@ public class CustomerOrder {
 	private ArrayList<Dish> Mains;
 	private ArrayList<Dish> Dessert;
 	private int time_taken_appetizers;
+	
 	public CustomerOrder(int orderTime)
 	{
 		c = new Customer();
