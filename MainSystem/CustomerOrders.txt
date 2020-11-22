@@ -1,0 +1,4 @@
+"pan fried fish", "pan fried babycorn", "chicken popcorn"; "lamb shank", "fish-n-chips", "beef wellington"; "brownie with ice cream", "fruit salad", "bread and butter pudding"
+"fried chicken tenders", "fried shrimp", "spring rolls"; "sausage rolls";
+"honey marinated chicken wings", "crispy pork belly"; "lamb shank"; "pineapple ice cream"
+;"beef wellington"; "chocolate pudding"
