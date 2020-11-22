@@ -1,8 +1,8 @@
 package src.MainSystem;
 import java.util.*;
 import java.io.*;
-import src.Cusine.*;
-import src.Persons.*;
+import Cusine.*;
+import Persons.*;
 
 public class CustomerOrder {
 	private Customer c;
