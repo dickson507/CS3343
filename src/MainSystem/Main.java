@@ -1,6 +1,9 @@
-package MainSystem;
+package src.MainSystem;
+
+
 import java.io.*;
 import java.util.*;
+import src.MainSystem.*;
 
 
 public class Main {
@@ -18,6 +21,9 @@ public class Main {
 			scanner.close();
 			
 			// reception.getListOfDishes();
+			// kitchen
+			Kitchen kitchenInstance = Kitchen.getInstance();
+			
 		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
