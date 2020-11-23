@@ -1,6 +1,6 @@
-package src.MainSystem;
-import src.Persons.*;
-import Menu.*;
+package MainSystem;
+import Persons.*;
+//import Menu.*;
 import java.util.*;
 import java.io.*;
 /*
@@ -20,10 +20,10 @@ public class Kitchen {
 	}
 	private Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
 	
-	public static Kitchen getInstance()
-	{
-		return kitchen;
-	}
+//	public static Kitchen getInstance()
+//	{
+//		return kitchen;
+//	}
 	public void process(ArrayList<CustomerOrder> co)
 	{
 		while(!co.isEmpty())

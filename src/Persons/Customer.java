@@ -1,4 +1,4 @@
-package src.Persons;
+package Persons;
 import java.util.*;
 import java.io.*;
 import TokenSystem.*;

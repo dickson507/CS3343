@@ -1,7 +1,7 @@
-package src.Persons;
+package Persons;
 import java.io.*;
 import java.util.*;
-import src.MainSystem.*;
+import MainSystem.*;
 /*import Cusine.Dish;*/
 
 

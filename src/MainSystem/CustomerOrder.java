@@ -1,4 +1,4 @@
-package src.MainSystem;
+package MainSystem;
 import java.util.*;
 import java.io.*;
 import Cusine.*;

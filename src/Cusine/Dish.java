@@ -1,4 +1,4 @@
-package src.Cusine;
+package Cusine;
 
 import java.util.HashMap;
 import java.util.Map;

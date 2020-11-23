@@ -1,10 +1,10 @@
-package src.MainSystem;
+package MainSystem;
 
 
 import java.io.*;
 import java.util.*;
 import java.lang.*;
-import src.MainSystem.*;
+import MainSystem.*;
 
 
 public class Main {

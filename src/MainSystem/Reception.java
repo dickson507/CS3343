@@ -1,10 +1,10 @@
-package src.MainSystem;
+package MainSystem;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
-import src.Cusine.*;
-import src.MainSystem.*;
+import Cusine.*;
+import MainSystem.*;
 
 /*
  * The driver program for the restaurant to receive orders
@@ -36,23 +36,23 @@ public class Reception {
 		String[] appetizer_name = appetizer_str.split(",");
 		for (int i = 0; i < appetizer_name.length; i++) {
 			System.out.print(appetizer_name[i]);
-			Dish dish = new Dish(appetizer_name[i]);
-			co.addAppetizers(dish);
+//			Dish dish = new Dish(appetizer_name[i]);
+//			co.addAppetizers(dish);
 		}
 		
 		String main_str = dishes_str.split(";")[1];
 		String[] main_name = main_str.split(",");
 		for (int i = 0; i < main_name.length; i++) {
 			System.out.print(main_name[i]);
-			Dish dish = new Dish(main_name[i]);
-			co.addMains(dish);
+//			Dish dish = new Dish(main_name[i]);
+//			co.addMains(dish);
 		}
 		String dessert_str = dishes_str.split(";")[2];
 		String[] dessert_name = dessert_str.split(",");
 		for (int i = 0; i < dessert_name.length; i++) {
 			System.out.print(dessert_name[i]);
-			Dish dish = new Dish(dessert_name[i]);
-			co.addDessert(dish);
+//			Dish dish = new Dish(dessert_name[i]);
+//			co.addDessert(dish);
 		}
 		
 		return co;
