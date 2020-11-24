@@ -1,10 +1,7 @@
 package Kitchen;
 import Persons.*;
-//import Menu.*;
+import Order.*;
 import java.util.*;
-
-import Order.CustomerOrder;
-
 import java.io.*;
 /*
  * The kitchen will assign minimum number of chefs
@@ -21,36 +18,37 @@ public class Kitchen {
 		chefB = new Chef(name2, ID2);
 		chefC = new Chef(name3, ID3);
 	}
-	private Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
-	
-//	public static Kitchen getInstance()
-//	{
-//		return kitchen;
-//	}
-	public void process(ArrayList<CustomerOrder> co)
+	private static Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
+	public static Kitchen getInstance()
 	{
+		return kitchen;
+	}
+	public void process(PriorityQueue<CustomerOrder> co)
+	{
+		int time = 0;//To track the time at which the dish is being served.
 		while(!co.isEmpty())
 		{
-			CustomerOrder temp = co.get(0);
+			CustomerOrder temp = co.peek();
 			if(chefA.returnAvailability() == true)
 			{
+				
 				chefA.assignOrder(temp);
-				co.remove(0);
+				co.remove();
 			}
 			else if(chefB.returnAvailability() ==  true)
 			{
 				chefB.assignOrder(temp);
-				co.remove(0);
+				co.remove();
 			}
 			else if(chefC.returnAvailability() == true)
 			{
 				chefC.assignOrder(temp);
-				co.remove(0);
+				co.remove();
 			}
 			else {}
-			chefA.cook();
-			chefB.cook();
-			chefC.cook();
+			chefA.cook(time);
+			chefB.cook(time);
+			chefC.cook(time);
 		}
 	}
 	/*

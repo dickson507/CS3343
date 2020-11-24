@@ -1,9 +1,9 @@
 package Persons;
 import java.io.*;
 import java.util.*;
+import Order.*;
 import MainSystem.*;
 /*import Cusine.Dish;*/
-import Order.CustomerOrder;
 
 
 public class Chef {
@@ -23,11 +23,13 @@ public class Chef {
 	{
 		this.order = order;
 		remainingTime = order.getTimeTaken();
+		isAvailable = false;
 	}
-	public void cook()
+	public void cook(int time)
 	{
 		if(remainingTime == 0)
 		{
+			Output.output(this.order, time);
 			isAvailable = true;
 			return;
 		}

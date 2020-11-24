@@ -96,14 +96,14 @@ public class CustomerOrder implements Comparable<CustomerOrder> {
 	
 	public String getOrderName() {
 		String result = "";
-		for (Dish appetizer : Appetizers) {
-			result += " "+appetizer.getDishName();
+		for (int i = 0; i < Appetizers.size(); i++) {
+			result += " "+Appetizers.get(i).getDishName();
 		}
-		for (Dish main : Mains) {
-			result += " "+main.getDishName();
+		for (int i = 0; i < Mains.size(); i++) {
+			result += " "+Mains.get(i).getDishName();
 		}
-		for (Dish dessert : Dessert) {
-			result += " "+dessert.getDishName();
+		for (int i = 0; i < Dessert.size(); i++) {
+			result += " "+Dessert.get(i).getDishName();
 		}
 		return result;
 	}

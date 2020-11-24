@@ -11,6 +11,7 @@ import Cusine.ReadMenu;
 import java.lang.*;
 import MainSystem.*;
 import Order.Reception;
+import Kitchen.*;
 
 
 public class Main {
@@ -41,6 +42,10 @@ public class Main {
 			}
 			scanner.close();
 			
+			reception.getListOfOrders();
+			
+			Kitchen kitchen = Kitchen.getInstance();
+			kitchen.process(reception.getCustomerOrderQueue());
 			
 		}
 		catch (FileNotFoundException e) {
