@@ -1,17 +1,16 @@
-package MainSystem;
+package Order;
 import java.util.*;
 import java.io.*;
 import Cusine.*;
 import Persons.*;
 
-public class CustomerOrder {
+public class CustomerOrder implements Comparable<CustomerOrder> {
 	private Customer c;
 	private int flag;
 	private int orderTime;
 	private ArrayList<Dish> Appetizers;
 	private ArrayList<Dish> Mains;
 	private ArrayList<Dish> Dessert;
-	private int time_taken_appetizers;
 	
 	public CustomerOrder(int orderTime)
 	{
@@ -70,15 +69,15 @@ public class CustomerOrder {
 		int total = 0;
 		for(int i = 0;i < Appetizers.size();i++)
 		{
-			total += Appetizers.get(i).get_duration();
+			total += Appetizers.get(i).getDishDuration();
 		}
 		for(int i = 0;i < Mains.size();i++)
 		{
-			total += Mains.get(i).get_duration();
+			total += Mains.get(i).getDishDuration();
 		}
 		for(int i = 0;i < Dessert.size();i++)
 		{
-			total += Dessert.get(i).get_duration();
+			total += Dessert.get(i).getDishDuration();
 		}
 		return total;
 	}
@@ -89,5 +88,44 @@ public class CustomerOrder {
 	public int getFlag()
 	{
 		return flag;
+	}
+	
+	public int getOrderTime() {
+		return orderTime;
+	}
+	
+	public String getOrderName() {
+		String result = "";
+		for (Dish appetizer : Appetizers) {
+			result += " "+appetizer.getDishName();
+		}
+		for (Dish main : Mains) {
+			result += " "+main.getDishName();
+		}
+		for (Dish dessert : Dessert) {
+			result += " "+dessert.getDishName();
+		}
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		CustomerOrder co = (CustomerOrder) o;
+		return Integer.compare(co.getOrderTime(), this.getOrderTime()) == 0 &&
+				Integer.compare(co.getTimeTaken(), this.getTimeTaken()) == 0;
+	}
+	
+
+	@Override
+	public int compareTo(CustomerOrder co) {
+		int compareOrderTime = Integer.compare(this.getOrderTime(), co.getOrderTime());
+		if (compareOrderTime != 0) {
+			return compareOrderTime;
+		}
+		else {
+			return Integer.compare(this.getTimeTaken(), co.getTimeTaken());
+		}
 	}
 }

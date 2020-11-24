@@ -1,7 +1,10 @@
-package MainSystem;
+package Kitchen;
 import Persons.*;
 //import Menu.*;
 import java.util.*;
+
+import Order.CustomerOrder;
+
 import java.io.*;
 /*
  * The kitchen will assign minimum number of chefs
