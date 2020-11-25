@@ -23,27 +23,27 @@ public class Kitchen {
 	{
 		return kitchen;
 	}
-	public void process(PriorityQueue<CustomerOrder> co)
+	public void process(ArrayList<CustomerOrder> co)
 	{
 		int time = 0;//To track the time at which the dish is being served.
 		while(!co.isEmpty())
 		{
-			CustomerOrder temp = co.peek();
+			CustomerOrder temp = co.get(0);
 			if(chefA.returnAvailability() == true)
 			{
 				
 				chefA.assignOrder(temp);
-				co.remove();
+				co.remove(0);
 			}
 			else if(chefB.returnAvailability() ==  true)
 			{
 				chefB.assignOrder(temp);
-				co.remove();
+				co.remove(0);
 			}
 			else if(chefC.returnAvailability() == true)
 			{
 				chefC.assignOrder(temp);
-				co.remove();
+				co.remove(0);
 			}
 			else {}
 			chefA.cook(time);

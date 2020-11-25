@@ -27,6 +27,8 @@ public class Chef {
 	}
 	public void cook(int time)
 	{
+		System.out.println("chef "+this.name+" is cooking");
+		System.out.println(remainingTime);
 		if(remainingTime == 0)
 		{
 			Output.output(this.order, time);

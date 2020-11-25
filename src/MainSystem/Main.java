@@ -10,6 +10,7 @@ import Cusine.ReadMenu;
 
 import java.lang.*;
 import MainSystem.*;
+import Order.CustomerOrder;
 import Order.Reception;
 import Kitchen.*;
 
@@ -42,10 +43,15 @@ public class Main {
 			}
 			scanner.close();
 			
-			reception.getListOfOrders();
+//			reception.getListOfOrders();
 			
 			Kitchen kitchen = Kitchen.getInstance();
-			kitchen.process(reception.getCustomerOrderQueue());
+			PriorityQueue<CustomerOrder> pq = reception.getCustomerOrderQueue();
+			ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
+			while (pq.size() > 0) {
+				co.add(pq.poll());
+			}
+			kitchen.process(co);
 			
 		}
 		catch (FileNotFoundException e) {
