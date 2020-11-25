@@ -17,7 +17,7 @@ public class Reception {
 	private PriorityQueue<CustomerOrder> input_order = null;
 	
 	
-	private Reception() {
+	public Reception() {
 		input_order = new PriorityQueue<>();
 		input_order.clear();
 	}
