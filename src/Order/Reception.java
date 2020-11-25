@@ -29,7 +29,6 @@ public class Reception {
 		int starttime = Integer.parseInt(starttime_str);
 		
 		CustomerOrder co = new CustomerOrder(starttime);
-		System.out.println(co.getCustomer());
 		
 		String dishes_str = in_order.substring(delimiter + 1);
 		
@@ -75,18 +74,26 @@ public class Reception {
 		return reception_restaurant;
 	}
 	
-//	public void getListOfOrders(){
-//		// priority queue is implemented as a heap.
-//		while (input_order.size() > 0) {
-//			CustomerOrder polled = input_order.poll();
-//			System.out.println("Token Number " + 
-//								polled.getCustomer().getTokenNumber() +
-//								":" + polled.getOrderName());
-//		}
-//	}
+	public void getListOfOrders(){
+		// priority queue is implemented as a heap.
+		ArrayList<CustomerOrder> co = this.getCustomerOrderQueue();
+		for (int i = 0; i < co.size(); i++) {
+			CustomerOrder polled = co.get(i);
+			System.out.println("Token Number " + 
+								polled.getCustomer().getTokenNumber() +
+								":" + polled.getOrderName());
+		}
+	}
 	
-	public PriorityQueue<CustomerOrder> getCustomerOrderQueue() {
-		return input_order;
+	
+	// Convert PriorityQueue to ArrayList
+	public ArrayList<CustomerOrder> getCustomerOrderQueue() {
+		PriorityQueue<CustomerOrder> pq = new PriorityQueue<>(input_order);
+		ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
+		while (pq.size() > 0) {
+			co.add(pq.poll());
+		}
+		return co;
 	}
 	
 	/*

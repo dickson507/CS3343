@@ -43,14 +43,10 @@ public class Main {
 			}
 			scanner.close();
 			
-//			reception.getListOfOrders();
+			reception.getListOfOrders();
 			
 			Kitchen kitchen = Kitchen.getInstance();
-			PriorityQueue<CustomerOrder> pq = reception.getCustomerOrderQueue();
-			ArrayList<CustomerOrder> co = new ArrayList<CustomerOrder>();
-			while (pq.size() > 0) {
-				co.add(pq.poll());
-			}
+			ArrayList<CustomerOrder> co = reception.getCustomerOrderQueue();
 			kitchen.process(co);
 			
 		}
