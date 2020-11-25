@@ -26,7 +26,6 @@ public class Main {
 			/*
 			 * this is the first step
 			 * read the menu first, load all the corresponding dish classes into the hash table
-			 * The DishHashInstance is a singleton, can be called in everywhere.
 			 */
 			for (Dish dish : ReadMenu.read("./src/Cusine/Menu.txt"))
 			{
@@ -45,7 +44,7 @@ public class Main {
 			
 			reception.getListOfOrders();
 			
-			Kitchen kitchen = Kitchen.getInstance();
+			Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
 			ArrayList<CustomerOrder> co = reception.getCustomerOrderQueue();
 			kitchen.process(co);
 			

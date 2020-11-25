@@ -12,43 +12,56 @@ public class Kitchen {
 	private Chef chefA;
 	private Chef chefB;
 	private Chef chefC;
-	private Kitchen(String name1,String ID1, String name2,String ID2, String name3, String ID3)
+	
+	public Kitchen(String name1,String ID1, String name2,String ID2, String name3, String ID3)
 	{
 		chefA = new Chef(name1, ID1);
 		chefB = new Chef(name2, ID2);
 		chefC = new Chef(name3, ID3);
 	}
-	private static Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
-	public static Kitchen getInstance()
-	{
-		return kitchen;
-	}
+
 	public void process(ArrayList<CustomerOrder> co)
 	{
 		int time = 0;//To track the time at which the dish is being served.
-		while(!co.isEmpty())
+		while(!co.isEmpty() || 
+				!(chefA.returnAvailability() &&
+				  chefB.returnAvailability() &&
+				  chefC.returnAvailability()))
 		{
-			CustomerOrder temp = co.get(0);
-			if(chefA.returnAvailability() == true)
+			if (co.size() > 0)
 			{
-				
-				chefA.assignOrder(temp);
-				co.remove(0);
+				CustomerOrder temp = co.get(0);
+				if(chefA.returnAvailability() == true)
+				{
+					
+					chefA.assignOrder(temp, time);
+					if (co.size() > 0)
+						co.remove(0);
+					if (co.size() > 0)
+						temp = co.get(0);
+				}
+				if(chefB.returnAvailability() ==  true)
+				{
+					chefB.assignOrder(temp, time);
+					if (co.size() > 0)
+						co.remove(0);
+					if (co.size() > 0)
+						temp = co.get(0);
+				}
+				if(chefC.returnAvailability() == true)
+				{
+					chefC.assignOrder(temp, time);
+					if (co.size() > 0)
+						co.remove(0);
+					if (co.size() > 0)
+						temp = co.get(0);
+				}
+				else {}
 			}
-			else if(chefB.returnAvailability() ==  true)
-			{
-				chefB.assignOrder(temp);
-				co.remove(0);
-			}
-			else if(chefC.returnAvailability() == true)
-			{
-				chefC.assignOrder(temp);
-				co.remove(0);
-			}
-			else {}
 			chefA.cook(time);
 			chefB.cook(time);
 			chefC.cook(time);
+			time++;
 		}
 	}
 	/*
