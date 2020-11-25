@@ -31,10 +31,24 @@ public class ReadMenu {
 			return dishes;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return dishes;
+		} catch (ArrayIndexOutOfBoundsException e_out_bound) {
+			return dishes;
 		}
-		return dishes;
-		
 	}
-
+	
+	public static String MenuToString(ArrayList<Dish> dishes) 
+	{
+		String result = "";
+		if (dishes.size() > 0)
+		{
+			for (Dish dish : dishes)
+			{
+				result += dish.getDishName() + " ";
+			}
+			return result.trim();
+		}
+		return result;
+	}
+	
 }

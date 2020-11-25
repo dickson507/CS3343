@@ -22,11 +22,6 @@ public class Main {
 		Reception reception = Reception.getReception();
 		
 		try {
-			
-			/*
-			 * this is the first step
-			 * read the menu first, load all the corresponding dish classes into the hash table
-			 */
 			for (Dish dish : ReadMenu.read("./src/Cusine/Menu.txt"))
 			{
 				DishHashInstance.
