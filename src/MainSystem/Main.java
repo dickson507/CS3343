@@ -46,7 +46,6 @@ public class Main {
 			
 			getInputFromFile(reception, "./src/MainSystem/myfile.txt");	
 			
-//			reception.getListOfOrders();
 
 			Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
 			kitchenProcess(reception, kitchen);

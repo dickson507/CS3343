@@ -19,6 +19,7 @@ public class Kitchen {
 		chefB = new Chef(name2, ID2);
 		chefC = new Chef(name3, ID3);
 	}
+	
 
 	public void process(ArrayList<CustomerOrder> co)
 	{
@@ -33,28 +34,15 @@ public class Kitchen {
 				CustomerOrder temp = co.get(0);
 				if(chefA.returnAvailability() == true)
 				{
-					
-					chefA.assignOrder(temp, time);
-					if (co.size() > 0)
-						co.remove(0);
-					if (co.size() > 0)
-						temp = co.get(0);
+					temp = manageOrder(chefA, co, time, temp);
 				}
 				if(chefB.returnAvailability() ==  true)
 				{
-					chefB.assignOrder(temp, time);
-					if (co.size() > 0)
-						co.remove(0);
-					if (co.size() > 0)
-						temp = co.get(0);
+					temp = manageOrder(chefB, co, time, temp);
 				}
 				if(chefC.returnAvailability() == true)
 				{
-					chefC.assignOrder(temp, time);
-					if (co.size() > 0)
-						co.remove(0);
-					if (co.size() > 0)
-						temp = co.get(0);
+					temp = manageOrder(chefC, co, time, temp);
 				}
 				else {}
 			}
@@ -64,8 +52,14 @@ public class Kitchen {
 			time++;
 		}
 	}
-	/*
-	 * Main class for the interval scheduling
-	 */
+
+	private CustomerOrder manageOrder(Chef chef, ArrayList<CustomerOrder> co, int time, CustomerOrder temp) {
+		chef.assignOrder(temp, time);
+		if (co.size() > 0)
+			co.remove(0);
+		if (co.size() > 0)
+			temp = co.get(0);
+		return temp;
+	}
 	
 }
