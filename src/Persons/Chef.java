@@ -13,26 +13,33 @@ public class Chef {
 	private CustomerOrder order;
 	private boolean isAvailable;
 	private int remainingTime;
+	private ArrayList<Integer> processedCustomerOrder;
+	
 	public Chef(String name, String ID)
 	{
 		this.name = name;
 		this.ID = name;
 		isAvailable = true;
+		this.processedCustomerOrder = new ArrayList<Integer>();
 	}
-	public void assignOrder(CustomerOrder order)
+	public void assignOrder(CustomerOrder order, int time)
 	{
 		this.order = order;
 		remainingTime = order.getTimeTaken();
+		System.out.println("CLOCK: " + time);
+		System.out.print("chef "+this.name+" is cooking, duration: " + this.order.getTimeTaken());
+		System.out.println(" customer token #" + this.order.getCustomer().getTokenNumber());
+		
 		isAvailable = false;
 	}
 	public void cook(int time)
 	{
-		System.out.println("chef "+this.name+" is cooking");
-		System.out.println(remainingTime);
-		if(remainingTime == 0)
+		if(remainingTime <= 0 &&
+				!this.processedCustomerOrder.contains(this.order.getCustomer().getTokenNumber()))
 		{
 			Output.output(this.order, time);
 			isAvailable = true;
+			this.processedCustomerOrder.add(this.order.getCustomer().getTokenNumber());
 			return;
 		}
 		else
