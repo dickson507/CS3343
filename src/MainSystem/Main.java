@@ -32,7 +32,6 @@ public class Main {
 		System.out.println("Process completed");
 	}
 	
-	
 	public static void main(String args[]) throws IOException {
 		// get the reception of the restaurant!
 		Reception reception = Reception.getReception();
@@ -48,6 +47,7 @@ public class Main {
 			getInputFromFile(reception, "./src/MainSystem/myfile.txt");	
 			
 //			reception.getListOfOrders();
+
 			Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
 			kitchenProcess(reception, kitchen);
 			
