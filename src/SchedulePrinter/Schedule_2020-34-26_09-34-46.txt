@@ -1,0 +1,11 @@
+CLOCK: 0 chef Abby is cooking, duration: 42 customer token #1
+CLOCK: 0 chef Bobby is cooking, duration: 32 customer token #3
+CLOCK: 0 chef Chabby is cooking, duration: 7 customer token #4
+Customer 4 has been served at 7.
+CLOCK: 8 chef Chabby is cooking, duration: 22 customer token #2
+Customer 2 has been served at 30.
+CLOCK: 31 chef Chabby is cooking, duration: 42 customer token #5
+Customer 3 has been served at 32.
+Customer 1 has been served at 42.
+Customer 5 has been served at 73.
+Process ends

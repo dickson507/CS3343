@@ -1,7 +1,11 @@
 package Kitchen;
 import Persons.*;
+import SchedulePrinter.printer;
 import Order.*;
 import java.util.*;
+
+import MainSystem.Output;
+
 import java.io.*;
 /*
  * The kitchen will assign minimum number of chefs
@@ -12,12 +16,14 @@ public class Kitchen {
 	private Chef chefA;
 	private Chef chefB;
 	private Chef chefC;
+	private printer SchedulePrinter;
 	
 	public Kitchen(String name1,String ID1, String name2,String ID2, String name3, String ID3)
 	{
 		chefA = new Chef(name1, ID1);
 		chefB = new Chef(name2, ID2);
 		chefC = new Chef(name3, ID3);
+		SchedulePrinter = new printer();
 	}
 	
 
@@ -46,15 +52,24 @@ public class Kitchen {
 				}
 				else {}
 			}
-			chefA.cook(time);
-			chefB.cook(time);
-			chefC.cook(time);
+			this.SchedulePrinter.addLog(chefA.cook(time));
+			this.SchedulePrinter.addLog(chefB.cook(time));
+			this.SchedulePrinter.addLog(chefC.cook(time));
 			time++;
+		}
+		// output the current schedule to a text file
+		System.out.println("Process ends");
+		this.SchedulePrinter.addLog("Process ends");
+		try {
+			SchedulePrinter.printSchedule();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
 	private CustomerOrder manageOrder(Chef chef, ArrayList<CustomerOrder> co, int time, CustomerOrder temp) {
-		chef.assignOrder(temp, time);
+		this.SchedulePrinter.addLog(chef.assignOrder(temp, time));
 		if (co.size() > 0)
 			co.remove(0);
 		if (co.size() > 0)

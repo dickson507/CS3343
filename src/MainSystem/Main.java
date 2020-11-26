@@ -29,7 +29,6 @@ public class Main {
 	public static void kitchenProcess(Reception reception, Kitchen kitchen) {
 		ArrayList<CustomerOrder> co = reception.getCustomerOrderQueue();
 		kitchen.process(co);
-		System.out.println("Process completed");
 	}
 	
 	public static void main(String args[]) throws IOException {
