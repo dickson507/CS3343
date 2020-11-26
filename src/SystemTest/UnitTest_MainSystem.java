@@ -7,6 +7,7 @@ import org.junit.Test;
 import MainSystem.*;
 import Order.*;
 import Kitchen.*;
+import Persons.*;
 
 public class UnitTest_MainSystem {
 
@@ -33,8 +34,19 @@ public class UnitTest_MainSystem {
 			@Override
 			public void input_order(String in_order){}
 		}
+		
+		class Stub_Kitchen extends Kitchen {
+
+			public Stub_Kitchen(String name1, String ID1, String name2, String ID2, String name3, String ID3) {
+				super(name1, ID1, name2, ID2, name3, ID3);
+			}
+			
+			@Override
+			public void process(ArrayList<CustomerOrder> cd) {}
+			
+		}
 		Stub_Reception reception = new Stub_Reception();
-		Kitchen kitchen = Kitchen.getInstance();
+		Stub_Kitchen kitchen = new Stub_Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
 		Main.kitchenProcess(reception, kitchen);
         assertEquals("Process completed\r\n", getOutput());
     }
@@ -45,11 +57,13 @@ public class UnitTest_MainSystem {
     public void UnitTest_Output_01() throws Exception {
 		setOutput();
 		class Stub_CustomerOrder extends CustomerOrder {
-			public Stub_CustomerOrder(int orderTime) {
-				super(orderTime);
+			public Stub_CustomerOrder(int orderTime, Customer c) {
+				super(orderTime, c);
 			}
 		}
-		Stub_CustomerOrder co = new Stub_CustomerOrder(10);
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		Stub_CustomerOrder co = new Stub_CustomerOrder(10, c);
 		Output.output(co, 10);
         assertEquals("Customer 1 has been served at 10.\r\n", getOutput());
     }

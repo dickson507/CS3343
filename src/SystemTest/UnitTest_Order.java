@@ -6,28 +6,220 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import MainSystem.*;
 import Order.*;
+import Persons.Customer;
 import Kitchen.*;
+import Cusine.*;
 
 public class UnitTest_Order {
 
 			
 	@Test
     // Condition Coverage - Result False #1
-    public void UnitTest_Order_01() throws Exception {
-		setOutput();
-		class Stub_Reception extends Reception {
-			@Override
-			public void input_order(String in_order){}
-		}
-		Stub_Reception reception = new Stub_Reception();
-		String filepath = "./src/SystemTest/test_file/main_01.txt";
-		Main.getInputFromFile(reception, filepath);
-        assertEquals("Order appended\r\n", getOutput());
+    public void UnitTest_CustomerOrder_01() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+        assertEquals(c, co.getCustomer());
     }
 	
+	@Test
+    // Condition Coverage - Result False #1
+    public void UnitTest_CustomerOrder_02() throws Exception {
+		class Stub_Customer extends Customer {}
+		class Stub_Dish extends Dish {
+			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
+				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
+			}
+		}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+		Stub_Dish dish = new Stub_Dish("crackers",0,2,10);
+		co.addAppetizers(dish);
+		co.addAppetizers(dish);
+		co.removeAppetizers(dish);
+		ArrayList<Dish> appetizers = new ArrayList<Dish>();
+		appetizers.add(dish);
+        assertEquals(appetizers, co.getAppetizers());
+    }
 	
+	@Test
+    // Condition Coverage - Result False #1
+    public void UnitTest_CustomerOrder_03() throws Exception {
+		class Stub_Customer extends Customer {}
+		class Stub_Dish extends Dish {
+			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
+				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
+			}
+		}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+		Stub_Dish dish = new Stub_Dish("fish",1,15,50);
+		co.addMains(dish);
+		co.addMains(dish);
+		co.removeMains(dish);
+		ArrayList<Dish> mains = new ArrayList<Dish>();
+		mains.add(dish);
+        assertEquals(mains, co.getMains());
+    }
 	
+	@Test
+    // Condition Coverage - Result False #1
+    public void UnitTest_CustomerOrder_04() throws Exception {
+		class Stub_Customer extends Customer {}
+		class Stub_Dish extends Dish {
+			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
+				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
+			}
+		}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+		Stub_Dish dish = new Stub_Dish("cake",2,5,10);
+		co.addDessert(dish);
+		co.addDessert(dish);
+		co.removeDessert(dish);
+		ArrayList<Dish> desserts = new ArrayList<Dish>();
+		desserts.add(dish);
+        assertEquals(desserts, co.getDessert());
+    }
 	
+	@Test
+    // Condition Coverage - Result False #1
+    public void UnitTest_CustomerOrder_05() throws Exception {
+		class Stub_Customer extends Customer {}
+		class Stub_Dish extends Dish {
+			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
+				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
+			}
+		}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+		Stub_Dish dish1 = new Stub_Dish("crackers",0,2,10);
+		Stub_Dish dish2 = new Stub_Dish("fish",1,15,50);
+		Stub_Dish dish3 = new Stub_Dish("cake",2,5,10);
+		co.addAppetizers(dish1);
+		co.addMains(dish2);
+		co.addDessert(dish3);
+        assertEquals(22, co.getTimeTaken());
+    }
+	
+	@Test
+    // Condition Coverage - Result False #1
+    public void UnitTest_CustomerOrder_06() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+		co.incrementFlag();
+        assertEquals(1, co.getFlag());
+    }
+	
+	@Test
+    // Condition Coverage - Result False #1
+    public void UnitTest_CustomerOrder_07() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+        assertEquals(0, co.getOrderTime());
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_08() throws Exception {
+		class Stub_Customer extends Customer {}
+		class Stub_Dish extends Dish {
+			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
+				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
+			}
+		}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+		Stub_Dish dish1 = new Stub_Dish("crackers",0,2,10);
+		Stub_Dish dish2 = new Stub_Dish("fish",1,15,50);
+		Stub_Dish dish3 = new Stub_Dish("cake",2,5,10);
+		co.addAppetizers(dish1);
+		co.addMains(dish2);
+		co.addDessert(dish3);
+        assertEquals(" crackers fish cake", co.getOrderName());
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_09() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+        assertEquals(true, co.equals(co));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_10() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+        assertEquals(false, co.equals(null));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_11() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c = new Stub_Customer();
+		CustomerOrder co = new CustomerOrder(0, c);
+        assertEquals(false, co.equals(c));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_12() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c1 = new Stub_Customer();
+		Stub_Customer c2 = new Stub_Customer();
+		CustomerOrder co1 = new CustomerOrder(0, c1);
+		CustomerOrder co2 = new CustomerOrder(0, c2);
+        assertEquals(true, co1.equals(co2));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_13() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c1 = new Stub_Customer();
+		Stub_Customer c2 = new Stub_Customer();
+		CustomerOrder co1 = new CustomerOrder(0, c1);
+		CustomerOrder co2 = new CustomerOrder(1, c2);
+        assertEquals(false, co1.equals(co2));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_14() throws Exception {
+		class Stub_Customer extends Customer {}
+		class Stub_Dish extends Dish {
+			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
+				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
+			}
+		}
+		Stub_Customer c1 = new Stub_Customer();
+		Stub_Customer c2 = new Stub_Customer();
+		CustomerOrder co1 = new CustomerOrder(0, c1);
+		CustomerOrder co2 = new CustomerOrder(0, c2);
+		Stub_Dish dish = new Stub_Dish("crackers",0,2,10);
+		co2.addAppetizers(dish);
+        assertEquals(false, co1.equals(co2));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_15() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c1 = new Stub_Customer();
+		Stub_Customer c2 = new Stub_Customer();
+		CustomerOrder co1 = new CustomerOrder(0, c1);
+		CustomerOrder co2 = new CustomerOrder(1, c2);
+        assertEquals(-1, co1.compareTo(co2));
+    }
+	
+	@Test
+	public void UnitTest_CustomerOrder_16() throws Exception {
+		class Stub_Customer extends Customer {}
+		Stub_Customer c1 = new Stub_Customer();
+		Stub_Customer c2 = new Stub_Customer();
+		CustomerOrder co1 = new CustomerOrder(0, c1);
+		CustomerOrder co2 = new CustomerOrder(0, c2);
+        assertEquals(0, co1.compareTo(co2));
+    }
 	
 	PrintStream oldPrintStream;
 	ByteArrayOutputStream bos;

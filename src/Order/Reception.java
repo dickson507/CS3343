@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 
 import Cusine.*;
 import MainSystem.*;
+import Persons.*;
 
 /*
  * The driver program for the restaurant to receive orders
@@ -28,7 +29,8 @@ public class Reception {
 		String starttime_str = in_order.substring(0, delimiter);
 		int starttime = Integer.parseInt(starttime_str);
 		
-		CustomerOrder co = new CustomerOrder(starttime);
+		Customer c = new Customer();
+		CustomerOrder co = new CustomerOrder(starttime, c);
 		
 		String dishes_str = in_order.substring(delimiter + 1);
 		

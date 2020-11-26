@@ -12,9 +12,9 @@ public class CustomerOrder implements Comparable<CustomerOrder> {
 	private ArrayList<Dish> Mains;
 	private ArrayList<Dish> Dessert;
 	
-	public CustomerOrder(int orderTime)
+	public CustomerOrder(int orderTime, Customer c)
 	{
-		c = new Customer();
+		this.c = c;
 		Appetizers = new ArrayList<Dish>();
 		Mains = new ArrayList<Dish>();
 		Dessert = new ArrayList<Dish>();
