@@ -18,7 +18,7 @@ public class Chef {
 	public Chef(String name, String ID)
 	{
 		this.name = name;
-		this.ID = name;
+		this.ID = ID;
 		isAvailable = true;
 		this.processedCustomerOrder = new ArrayList<Integer>();
 	}
@@ -29,13 +29,11 @@ public class Chef {
 		System.out.println("CLOCK: " + time);
 		System.out.print("chef "+this.name+" is cooking, duration: " + this.order.getTimeTaken());
 		System.out.println(" customer token #" + this.order.getCustomer().getTokenNumber());
-		
 		isAvailable = false;
 	}
 	public void cook(int time)
 	{
-		if(remainingTime <= 0 &&
-				!this.processedCustomerOrder.contains(this.order.getCustomer().getTokenNumber()))
+		if(remainingTime == 0 && isAvailable == false)
 		{
 			Output.output(this.order, time);
 			isAvailable = true;

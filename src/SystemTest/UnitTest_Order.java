@@ -16,23 +16,19 @@ public class UnitTest_Order {
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_01() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
-        assertEquals(c, co.getCustomer());
+		CustomerOrder co = new CustomerOrder(0);
+        //assertEquals(c, co.getCustomer());
     }
 	
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_02() throws Exception {
-		class Stub_Customer extends Customer {}
 		class Stub_Dish extends Dish {
 			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
 				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
 			}
 		}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
 		Stub_Dish dish = new Stub_Dish("crackers",0,2,10);
 		co.addAppetizers(dish);
 		co.addAppetizers(dish);
@@ -45,14 +41,12 @@ public class UnitTest_Order {
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_03() throws Exception {
-		class Stub_Customer extends Customer {}
 		class Stub_Dish extends Dish {
 			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
 				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
 			}
 		}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
 		Stub_Dish dish = new Stub_Dish("fish",1,15,50);
 		co.addMains(dish);
 		co.addMains(dish);
@@ -65,14 +59,12 @@ public class UnitTest_Order {
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_04() throws Exception {
-		class Stub_Customer extends Customer {}
 		class Stub_Dish extends Dish {
 			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
 				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
 			}
 		}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
 		Stub_Dish dish = new Stub_Dish("cake",2,5,10);
 		co.addDessert(dish);
 		co.addDessert(dish);
@@ -85,14 +77,12 @@ public class UnitTest_Order {
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_05() throws Exception {
-		class Stub_Customer extends Customer {}
 		class Stub_Dish extends Dish {
 			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
 				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
 			}
 		}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
 		Stub_Dish dish1 = new Stub_Dish("crackers",0,2,10);
 		Stub_Dish dish2 = new Stub_Dish("fish",1,15,50);
 		Stub_Dish dish3 = new Stub_Dish("cake",2,5,10);
@@ -105,9 +95,7 @@ public class UnitTest_Order {
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_06() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
 		co.incrementFlag();
         assertEquals(1, co.getFlag());
     }
@@ -115,22 +103,18 @@ public class UnitTest_Order {
 	@Test
     // Condition Coverage - Result False #1
     public void UnitTest_CustomerOrder_07() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
         assertEquals(0, co.getOrderTime());
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_08() throws Exception {
-		class Stub_Customer extends Customer {}
 		class Stub_Dish extends Dish {
 			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
 				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
 			}
 		}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
 		Stub_Dish dish1 = new Stub_Dish("crackers",0,2,10);
 		Stub_Dish dish2 = new Stub_Dish("fish",1,15,50);
 		Stub_Dish dish3 = new Stub_Dish("cake",2,5,10);
@@ -142,60 +126,45 @@ public class UnitTest_Order {
 	
 	@Test
 	public void UnitTest_CustomerOrder_09() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
         assertEquals(true, co.equals(co));
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_10() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
+		CustomerOrder co = new CustomerOrder(0);
         assertEquals(false, co.equals(null));
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_11() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c = new Stub_Customer();
-		CustomerOrder co = new CustomerOrder(0, c);
-        assertEquals(false, co.equals(c));
+		CustomerOrder co = new CustomerOrder(0);
+        assertEquals(true, co.equals(co));
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_12() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c1 = new Stub_Customer();
-		Stub_Customer c2 = new Stub_Customer();
-		CustomerOrder co1 = new CustomerOrder(0, c1);
-		CustomerOrder co2 = new CustomerOrder(0, c2);
+		CustomerOrder co1 = new CustomerOrder(0);
+		CustomerOrder co2 = new CustomerOrder(0);
         assertEquals(true, co1.equals(co2));
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_13() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c1 = new Stub_Customer();
-		Stub_Customer c2 = new Stub_Customer();
-		CustomerOrder co1 = new CustomerOrder(0, c1);
-		CustomerOrder co2 = new CustomerOrder(1, c2);
+		CustomerOrder co1 = new CustomerOrder(0);
+		CustomerOrder co2 = new CustomerOrder(1);
         assertEquals(false, co1.equals(co2));
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_14() throws Exception {
-		class Stub_Customer extends Customer {}
 		class Stub_Dish extends Dish {
 			public Stub_Dish(String in_dishName, int in_dishTypeInt, int in_dishDuration, int in_price) {
 				super(in_dishName, in_dishTypeInt, in_dishDuration, in_price);
 			}
 		}
-		Stub_Customer c1 = new Stub_Customer();
-		Stub_Customer c2 = new Stub_Customer();
-		CustomerOrder co1 = new CustomerOrder(0, c1);
-		CustomerOrder co2 = new CustomerOrder(0, c2);
+		CustomerOrder co1 = new CustomerOrder(0);
+		CustomerOrder co2 = new CustomerOrder(0);
 		Stub_Dish dish = new Stub_Dish("crackers",0,2,10);
 		co2.addAppetizers(dish);
         assertEquals(false, co1.equals(co2));
@@ -203,25 +172,19 @@ public class UnitTest_Order {
 	
 	@Test
 	public void UnitTest_CustomerOrder_15() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c1 = new Stub_Customer();
-		Stub_Customer c2 = new Stub_Customer();
-		CustomerOrder co1 = new CustomerOrder(0, c1);
-		CustomerOrder co2 = new CustomerOrder(1, c2);
+		CustomerOrder co1 = new CustomerOrder(0);
+		CustomerOrder co2 = new CustomerOrder(1);
         assertEquals(-1, co1.compareTo(co2));
     }
 	
 	@Test
 	public void UnitTest_CustomerOrder_16() throws Exception {
-		class Stub_Customer extends Customer {}
-		Stub_Customer c1 = new Stub_Customer();
-		Stub_Customer c2 = new Stub_Customer();
-		CustomerOrder co1 = new CustomerOrder(0, c1);
-		CustomerOrder co2 = new CustomerOrder(0, c2);
+		CustomerOrder co1 = new CustomerOrder(0);
+		CustomerOrder co2 = new CustomerOrder(0);
         assertEquals(0, co1.compareTo(co2));
     }
 	
-	PrintStream oldPrintStream;
+/*	PrintStream oldPrintStream;
 	ByteArrayOutputStream bos;
 
 	private void setOutput() throws Exception {
@@ -233,6 +196,6 @@ public class UnitTest_Order {
 	private String getOutput() { // throws Exception
 		System.setOut(oldPrintStream);
 		return bos.toString();
-	}
+	}*/
 }
 

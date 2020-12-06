@@ -1,18 +1,12 @@
 package MainSystem;
-
-
-import java.io.*;
 import java.util.*;
-
-import Cusine.Dish;
-import Cusine.DishHashInstance;
-import Cusine.ReadMenu;
-
+import java.io.*;
 import java.lang.*;
 import MainSystem.*;
 import Order.CustomerOrder;
 import Order.Reception;
 import Kitchen.*;
+import Cusine.*;
 
 
 public class Main {
@@ -48,7 +42,7 @@ public class Main {
 			
 //			reception.getListOfOrders();
 
-			Kitchen kitchen = new Kitchen("Abby", "001", "Bobby", "002", "Chabby", "003");
+			Kitchen kitchen = Kitchen.getInstance();
 			kitchenProcess(reception, kitchen);
 			
 		}

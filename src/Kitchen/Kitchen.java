@@ -12,56 +12,49 @@ public class Kitchen {
 	private Chef chefA;
 	private Chef chefB;
 	private Chef chefC;
-	
-	public Kitchen(String name1,String ID1, String name2,String ID2, String name3, String ID3)
+	private static Kitchen kitchen =  new Kitchen("Adam", "C1","Bob","C2","Charlie","C3");
+	private Kitchen(String name1,String ID1, String name2,String ID2, String name3, String ID3)
 	{
 		chefA = new Chef(name1, ID1);
 		chefB = new Chef(name2, ID2);
 		chefC = new Chef(name3, ID3);
 	}
-
+	public static Kitchen getInstance()
+	{
+		return kitchen;
+	}
 	public void process(ArrayList<CustomerOrder> co)
 	{
 		int time = 0;//To track the time at which the dish is being served.
-		while(!co.isEmpty() || 
-				!(chefA.returnAvailability() &&
-				  chefB.returnAvailability() &&
-				  chefC.returnAvailability()))
+		while(!co.isEmpty() || !(chefA.returnAvailability() && chefB.returnAvailability()&& chefC.returnAvailability()))
 		{
-			if (co.size() > 0)
-			{
-				CustomerOrder temp = co.get(0);
-				if(chefA.returnAvailability() == true)
+			
+				if(chefA.returnAvailability() == true && !co.isEmpty())
 				{
-					
+					CustomerOrder temp = co.get(0);
 					chefA.assignOrder(temp, time);
-					if (co.size() > 0)
+					if (!co.isEmpty())
 						co.remove(0);
-					if (co.size() > 0)
-						temp = co.get(0);
 				}
-				if(chefB.returnAvailability() ==  true)
+				else if(chefB.returnAvailability() ==  true && !co.isEmpty())
 				{
+					CustomerOrder temp = co.get(0);
 					chefB.assignOrder(temp, time);
-					if (co.size() > 0)
-						co.remove(0);
-					if (co.size() > 0)
-						temp = co.get(0);
+					if (!co.isEmpty())
+						co.remove(0);      
 				}
-				if(chefC.returnAvailability() == true)
+				else if(chefC.returnAvailability() == true && !co.isEmpty())
 				{
+					CustomerOrder temp = co.get(0);
 					chefC.assignOrder(temp, time);
-					if (co.size() > 0)
+					if (!co.isEmpty())
 						co.remove(0);
-					if (co.size() > 0)
-						temp = co.get(0);
 				}
 				else {}
-			}
 			chefA.cook(time);
 			chefB.cook(time);
 			chefC.cook(time);
-			time++;
+			time += 1;
 		}
 	}
 	/*
