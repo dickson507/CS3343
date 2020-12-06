@@ -26,25 +26,23 @@ public class Main {
 		System.out.println("Process completed");
 	}
 	
+	public static void readMenuFromFile(String menu_path) {
+		for (Dish dish : ReadMenu.read(menu_path))
+		{
+			DishHashInstance.
+			getDishHashInstance().
+			insertDish(dish);
+		}
+	}
+	
 	public static void main(String args[]) throws IOException {
-		// get the reception of the restaurant!
 		Reception reception = Reception.getReception();
 		
 		try {
-			for (Dish dish : ReadMenu.read("./src/Cusine/Menu.txt"))
-			{
-				DishHashInstance.
-				getDishHashInstance().
-				insertDish(dish);
-			}
-			
+			readMenuFromFile("./src/Cusine/Menu.txt");
 			getInputFromFile(reception, "./src/MainSystem/myfile.txt");	
-			
-//			reception.getListOfOrders();
-
 			Kitchen kitchen = Kitchen.getInstance();
 			kitchenProcess(reception, kitchen);
-			
 		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();

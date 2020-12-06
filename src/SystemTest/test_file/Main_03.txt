@@ -1,0 +1,7 @@
+0/crackers;beef,beef,fish;cake
+9/crackers;fish;cake
+3/crackers;beef,fish;cake
+4/crackers;;cake
+8/crackers;fish,beef,beef;cake
+7/salad;fish,Cassoulet,beef;orange
+1/salad;Cassoulet,beef;grape

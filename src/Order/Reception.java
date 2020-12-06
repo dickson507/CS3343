@@ -38,7 +38,6 @@ public class Reception {
 		if (appetizer_str.length() > 0) {
 			String[] appetizer_name = appetizer_str.split(",");
 			for (String appetizer_name_in : appetizer_name) {
-				System.out.print(appetizer_name_in);
 				Dish dish = DishHashInstance.getDishHashInstance().getDish(appetizer_name_in);
 				co.addAppetizers(dish);
 			}
@@ -48,7 +47,6 @@ public class Reception {
 		if (main_str.length() > 0) {
 			String[] main_name = main_str.split(",");
 			for (String main_name_in : main_name) {
-				System.out.print(main_name_in);
 				Dish dish = DishHashInstance.getDishHashInstance().getDish(main_name_in);
 				co.addMains(dish);
 			}
@@ -58,7 +56,6 @@ public class Reception {
 		if (dessert_str.length() > 0) {
 			String[] dessert_name = dessert_str.split(",");
 			for (String dessert_name_in : dessert_name) {
-				System.out.print(dessert_name_in);
 				Dish dish = DishHashInstance.getDishHashInstance().getDish(dessert_name_in);
 				co.addDessert(dish);
 			}
@@ -109,6 +106,7 @@ public class Reception {
 	public void restartReception()
 	{
 		reception_restaurant = new Reception();
+		input_order.clear();
 	}
 	
 	
