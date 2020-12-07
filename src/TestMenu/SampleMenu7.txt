@@ -1,0 +1,8 @@
+salad,0,5,10
+beef,1,999999,10000
+cake,0,55555,10
+fish,1,10,40
+crackers,0,2,10
+chocolate,2,5,20
+grape,2,3,10
+orange,2,4,10
