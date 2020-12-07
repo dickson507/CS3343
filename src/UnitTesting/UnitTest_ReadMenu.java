@@ -9,7 +9,7 @@ import org.junit.Test;
 import Cusine.Dish;
 import Cusine.ReadMenu;
 
-public class TestReadMenu {
+public class UnitTest_ReadMenu {
 	
 	@Test
 	public void testReadMenu1() {

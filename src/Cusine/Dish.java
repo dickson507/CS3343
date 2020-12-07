@@ -35,6 +35,9 @@ public class Dish {
 		case 2:
 			dishType = new Dessert();
 			break;
+		case -1:
+			dishType = new NullDishType();
+			break;
 		}	
 		dishDuration = in_dishDuration;
 		price = in_price;

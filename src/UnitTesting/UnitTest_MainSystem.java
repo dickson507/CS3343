@@ -1,9 +1,11 @@
-package SystemTest;
+package UnitTesting;
 
 import java.io.*;
 import java.util.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import Cusine.DishHashInstance;
 import MainSystem.*;
 import Order.*;
 import Kitchen.*;
@@ -41,6 +43,17 @@ public class UnitTest_MainSystem {
 		Main.kitchenProcess(reception, kitchen);
         assertEquals("Process completed\r\n", getOutput());
     }
+	
+	@Test
+	public void UnitTest_Main_03() throws Exception {
+		setOutput();
+		Main.readMenuFromFile("./src/TestMenu/SampleMenu1.txt");
+		System.out.println(DishHashInstance.getDishHashInstance().getDish("beef").toString());
+		assertEquals("Dish name = beef ,"
+				+ "Dish type = Main Course ,"
+				+ "Dish duration = 10 ,"
+				+ "Dish price = 50\r\n", getOutput());
+	}
 	
 	
 	@Test

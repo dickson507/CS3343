@@ -11,7 +11,7 @@ import Cusine.*;
 import Order.*;
 
 
-public class TestKitchen
+public class UnitTest_Kitchen
 {
 	private ArrayList<CustomerOrder> orders;
 	private Kitchen kitchen;

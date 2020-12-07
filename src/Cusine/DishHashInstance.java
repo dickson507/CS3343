@@ -2,6 +2,7 @@ package Cusine;
 
 import java.util.HashMap;
 import java.util.Map;
+import Cusine.NullDish;
 
 /*
  * This is a singleton instance to store the string to class mapping
@@ -32,8 +33,18 @@ public class DishHashInstance {
 	}
 	
 	public Dish getDish(String name) {
-		return registry.get(name);
+		Dish retrievedDish = registry.get(name);
+		if (retrievedDish == null)
+		{
+			return new NullDish();
+		}
+		return retrievedDish;
 	}
 	
+
+	public void restartDishHashInstance()
+	{
+		registry.clear();
+	}
 
 }

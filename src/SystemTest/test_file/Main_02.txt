@@ -1,0 +1,5 @@
+0/crackers;beef,beef,fish;cake
+5/crackers;fish;cake
+3/crackers;beef,fish;cake
+4/crackers;;cake
+7/crackers;fish,beef,beef;cake
