@@ -22,4 +22,8 @@ public class Token {
 		increment();
 		return token;
 	}
+	public void restartTokenSystem()
+	{
+		token = 0;
+	}
 }
