@@ -39,8 +39,8 @@ public class Main {
 		Reception reception = Reception.getReception();
 		
 		try {
-			readMenuFromFile("./src/Cusine/Menu.txt");
-			getInputFromFile(reception, "./src/MainSystem/myfile.txt");	
+			readMenuFromFile(System.getProperty("user.dir")+"/Menu.txt");
+			getInputFromFile(reception, System.getProperty("user.dir")+"/input.txt");	
 			Kitchen kitchen = Kitchen.getInstance();
 			kitchenProcess(reception, kitchen);
 		}

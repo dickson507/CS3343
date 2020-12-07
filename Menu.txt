@@ -1,0 +1,5 @@
+beef,1,10,50
+cake,0,5,10
+crackers,0,2,10
+fish,1,15,50
+fried_rice,1,12,40
