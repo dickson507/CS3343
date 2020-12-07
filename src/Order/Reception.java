@@ -29,7 +29,7 @@ public class Reception {
 		String starttime_str = in_order.substring(0, delimiter);
 		int starttime = Integer.parseInt(starttime_str);
 		
-		Customer c = new Customer();
+		// Customer c = new Customer();
 		CustomerOrder co = new CustomerOrder(starttime);
 		
 		String dishes_str = in_order.substring(delimiter + 1);

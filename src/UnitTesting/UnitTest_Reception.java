@@ -38,7 +38,7 @@ public class UnitTest_Reception {
 		}
 		reception.input_order("0/crackers;beef,beef,fish;cake");
 		reception.getListOfOrders();
-		assertEquals("Token Number 2: crackers beef beef fish cake\r\n", getOutput());
+		assertEquals("Token Number 1: crackers beef beef fish cake\r\n", getOutput());
 	}
 	
 	@After public void restart() throws Exception{
